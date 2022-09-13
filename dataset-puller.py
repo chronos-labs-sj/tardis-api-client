@@ -5,20 +5,18 @@
 from tardis_dev import datasets
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 import shlex
+from gooey import Gooey
 
+@Gooey
 def parse_args():
-    default_data_types="incremental_book_L2",
-    "trades",
-    "quotes",
-    "book_snapshot_25",
-    "book_ticker"
+    default_data_types="incremental_book_L2 trades quotes book_snapshot_25 book_ticker"
 
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter, conflict_handler='resolve')
     parser.add_argument('--exchange', '-ex', default='binance', help="the exchange to pull data from")
-    parser.add_argument('--from_date', '-from', help='from date - inclusive', required=True)
-    parser.add_argument('--to_date', '-to', help='to date - exclusive', required=True)
+    parser.add_argument('--from_date', '-from', default='2022-09-08', help='from date - inclusive. Format=YYYY-MM-DD', required=True)
+    parser.add_argument('--to_date', '-to', default='2022-09-08', help='to date - exclusive. Format=YYYY-MM-DD', required=True)
     parser.add_argument('--symbols', '-sym', default='BTCUSDT', help="whitespace separated list of symbols")
-    parser.add_argument('--data-types', '-dt', default=default_data_types, help='data types to be included in the datasets')
+    parser.add_argument('--data-types', '-dt', default=default_data_types, help='whitespace separated list of data types to be included in the datasets')
 
     args = parser.parse_args()
     return args
@@ -26,17 +24,8 @@ def parse_args():
 
 def download(args):
     datasets.download(
-        # exchange="binance-futures",
         exchange=args.exchange,
-        data_types=[
-            "incremental_book_L2",
-            "trades",
-            "quotes",
-            # "derivative_ticker",
-            "book_snapshot_25",
-            # "liquidations",
-            "book_ticker"
-        ],
+        data_types=shlex.split(args.data_types),
         from_date=args.from_date,
         to_date=args.to_date,
         symbols=shlex.split(args.symbols),
