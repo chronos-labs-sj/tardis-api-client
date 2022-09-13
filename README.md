@@ -1,5 +1,8 @@
 # tardis-api-client
 
+## Summary
+This is ChronosLabs Python client for interacting with [Tardis data API](https://docs.tardis.dev/downloadable-csv-files). Details of the API itself can be found there. This README only covers usage for our client.
+
 ## Usage
 
 1. CLI
