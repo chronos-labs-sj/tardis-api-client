@@ -8,10 +8,10 @@ import shlex
 
 def parse_args():
     default_data_types="incremental_book_L2",
-            "trades",
-            "quotes",
-            "book_snapshot_25",
-            "book_ticker"
+    "trades",
+    "quotes",
+    "book_snapshot_25",
+    "book_ticker"
 
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter, conflict_handler='resolve')
     parser.add_argument('--exchange', '-ex', default='binance', help="the exchange to pull data from")
