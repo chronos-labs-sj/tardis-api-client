@@ -12,5 +12,5 @@ Standard CLI program. Sample command:
 
 **Option 2 - UI**
 
-This program has been wrapped by an UI. This means you can specify input parameters via the UI, instead of manually typing them out like above. To launch the UI, simply run `python dataset-puller.py`. Fill in the options in the UI and execute.
+This program has been wrapped by an UI. This means you can specify input parameters via the UI, instead of manually typing them out like above. To launch the UI, simply run `python3 dataset-puller.py`. Fill in the options in the UI and execute.
 <img width="618" alt="Screen Shot 2022-09-13 at 6 31 46 PM" src="https://user-images.githubusercontent.com/113400670/190021372-43e18dad-8fef-4d0e-a5fd-0a2db4bf31e1.png">
